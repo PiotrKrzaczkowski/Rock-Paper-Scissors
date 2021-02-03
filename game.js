@@ -1,3 +1,16 @@
+const winner = document.getElementById("winner");
+const hands = [...document.querySelectorAll(".select img")];
+const roundsSpan = document.querySelector(".rounds span");
+const winsSpan = document.querySelector(".wins span");
+const drawsSpan = document.querySelector(".draws span");
+const loosesSpan = document.querySelector(".losses span");
+const popup = document.querySelector(".popup");
+const popupContinue = document.getElementById("continue");
+const popupReset = document.getElementById("reset");
+const popupQuit = document.getElementById("quit");
+const endGamePopup = document.getElementById("pupup-quit");
+const popupInfoRounds = document.querySelector(".popup .title");
+
 const summary = {
   rounds: 0,
   wins: 0,
@@ -11,18 +24,6 @@ const game = {
   aiHand: "",
 };
 let { playerHand, aiHand, playerHandHTML } = game;
-
-const winner = document.getElementById("winner");
-const hands = [...document.querySelectorAll(".select img")];
-const roundsSpan = document.querySelector(".rounds span");
-const winsSpan = document.querySelector(".wins span");
-const drawsSpan = document.querySelector(".draws span");
-const loosesSpan = document.querySelector(".losses span");
-const popup = document.querySelector(".popup");
-const popupContinue = document.getElementById("continue");
-const popupReset = document.getElementById("reset");
-const popupQuit = document.getElementById("quit");
-const endGamePopup = document.getElementById("pupup-quit");
 
 function handSelection() {
   aiHand = "";
@@ -40,7 +41,13 @@ function startGame() {
   computerChoice();
   checkResult();
 
-  if (rounds === 10) {
+  if (
+    rounds === 10 ||
+    rounds === 20 ||
+    rounds === 30 ||
+    rounds === 40 ||
+    rounds === 50
+  ) {
     gameQuestion();
   }
 }
@@ -96,6 +103,8 @@ function checkResult() {
 }
 
 function gameQuestion() {
+  popupInfoRounds.innerText = `You have played ${rounds} rounds, what do you want to do?`;
+
   // CONTINUE BUTTON
 
   popup.style.display = "flex";
