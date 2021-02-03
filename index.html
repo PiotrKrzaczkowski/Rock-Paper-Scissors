@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="pl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Rock paper scissors</title>
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+
+  <body>
+    <h1>rock paper scissors</h1>
+
+    <div class="select">
+      <h3>Pick your hand:</h3>
+      <div class="img-wrapper">
+        <img
+          data-option="paper"
+          class="first"
+          src="./paper.png"
+          alt="paper"
+          title="Papier"
+        />
+
+        <img data-option="rock" src="./rock.png" alt="rock" title="Kamień" />
+
+        <img
+          data-option="scissors"
+          src="./scissors.png"
+          alt="scissors"
+          title="nożyczki"
+        />
+      </div>
+    </div>
+
+    <button class="start">Let's play!</button>
+
+    <div class="panel-left">
+      <h3>Score:</h3>
+      <div class="left-wrapper">
+        <p>Your choice: <span data-summary="your-choice"></span></p>
+        <p>Computer choice: <span data-summary="ai-choice"></span></p>
+      </div>
+    </div>
+    <h2 class="who-win">Winner: <span data-summary="who-win"></span></h2>
+
+    <div class="panel-right">
+      <h3>Aktualne wyniki:</h3>
+      <div class="right-wrapper">
+        <p class="numbers">Rounds: <span>0</span></p>
+        <p class="wins">Your wins: <span>0</span></p>
+        <p class="losses">Your looses: <span>0</span></p>
+        <p class="draws">Draws: <span>0</span></p>
+      </div>
+    </div>
+
+    <script src="game.js"></script>
+  </body>
+</html>
