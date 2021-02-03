@@ -32,6 +32,7 @@ body {
 }
 .select img {
   width: 80px;
+  border-radius: 8px;
 }
 .img-wrapper {
   width: 100%;
@@ -39,7 +40,7 @@ body {
   justify-content: space-evenly;
 }
 .img-wrapper img {
-  padding-bottom: 40px;
+  padding: 10px;
 }
 .img-wrapper img:hover {
   cursor: pointer;
@@ -52,6 +53,11 @@ body {
   padding: 10px 20px;
   color: #ccc;
   transition: 0.3s;
+  text-transform: uppercase;
+  font-size: 1.2rem;
+  font-weight: 800;
+  letter-spacing: 1px;
+  font-family: "Poppins", sans-serif;
 }
 .start:hover {
   cursor: pointer;

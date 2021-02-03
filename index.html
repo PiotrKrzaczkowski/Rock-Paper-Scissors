@@ -43,16 +43,20 @@
     <div class="panel-left">
       <h3>Score:</h3>
       <div class="left-wrapper">
-        <p>Your choice: <span data-summary="your-choice"></span></p>
-        <p>Computer choice: <span data-summary="ai-choice"></span></p>
+        <p>
+          Your hand: <span id="your-choice" data-summary="your-choice"></span>
+        </p>
+        <p>BOT hand: <span id="ai-choice" data-summary="ai-choice"></span></p>
       </div>
     </div>
-    <h2 class="who-win">Winner: <span data-summary="who-win"></span></h2>
+    <h2 class="who-win">
+      Winner: <span id="winner" data-summary="who-win"></span>
+    </h2>
 
     <div class="panel-right">
       <h3>Aktualne wyniki:</h3>
       <div class="right-wrapper">
-        <p class="numbers">Rounds: <span>0</span></p>
+        <p class="rounds">Rounds: <span>0</span></p>
         <p class="wins">Your wins: <span>0</span></p>
         <p class="losses">Your looses: <span>0</span></p>
         <p class="draws">Draws: <span>0</span></p>
