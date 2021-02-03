@@ -18,8 +18,14 @@ const roundsSpan = document.querySelector(".rounds span");
 const winsSpan = document.querySelector(".wins span");
 const drawsSpan = document.querySelector(".draws span");
 const loosesSpan = document.querySelector(".losses span");
+const popup = document.querySelector(".popup");
+const popupContinue = document.getElementById("continue");
+const popupReset = document.getElementById("reset");
+const popupQuit = document.getElementById("quit");
+const endGamePopup = document.getElementById("pupup-quit");
 
 function handSelection() {
+  aiHand = "";
   playerHand = this.dataset.option;
   hands.forEach((i) => (i.style.boxShadow = ""));
   this.style.boxShadow = "0px 0px 3px cyan";
@@ -33,12 +39,15 @@ function startGame() {
   }
   computerChoice();
   checkResult();
+
+  if (rounds === 10) {
+    gameQuestion();
+  }
 }
 
 function computerChoice() {
   let index = Math.floor(Math.random() * hands.length);
   aiHand = hands[index].dataset.option;
-
   console.log(aiHand);
 }
 
@@ -84,6 +93,46 @@ function checkResult() {
     drawsSpan.innerText = draws;
     winner.innerText = "DRAW";
   }
+}
+
+function gameQuestion() {
+  // CONTINUE BUTTON
+
+  popup.style.display = "flex";
+  popupContinue.addEventListener("click", () => (popup.style.display = "none"));
+
+  // RESET BUTTON
+
+  popupReset.addEventListener("click", () => {
+    rounds = 0;
+    wins = 0;
+    looses = 0;
+    draws = 0;
+    loosesSpan.innerText = 0;
+    roundsSpan.innerText = 0;
+    winsSpan.innerText = 0;
+    drawsSpan.innerText = 0;
+    popup.style.display = "none";
+  });
+
+  // QUIT BUTTON
+  popupQuit.addEventListener("click", () => {
+    endGamePopup.style.display = "block";
+
+    setTimeout(() => {
+      endGamePopup.style.display = "none";
+      popup.style.display = "none";
+    }, 3000);
+
+    rounds = 0;
+    wins = 0;
+    looses = 0;
+    draws = 0;
+    loosesSpan.innerText = 0;
+    roundsSpan.innerText = 0;
+    winsSpan.innerText = 0;
+    drawsSpan.innerText = 0;
+  });
 }
 
 hands.forEach((i) => i.addEventListener("click", handSelection));
