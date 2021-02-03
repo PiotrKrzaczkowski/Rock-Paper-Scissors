@@ -35,7 +35,9 @@ function handSelection() {
 
 function startGame() {
   if (!playerHand) {
-    alert("Pick your hand");
+    alert(
+      "To start the game pick your 'hand' and click 'LET'S PLAY' button. Good luck!"
+    );
     return;
   }
   computerChoice();
@@ -141,6 +143,8 @@ function gameQuestion() {
     roundsSpan.innerText = 0;
     winsSpan.innerText = 0;
     drawsSpan.innerText = 0;
+    hands.forEach((i) => (i.style.boxShadow = ""));
+    winner.innerText = "";
   });
 }
 
